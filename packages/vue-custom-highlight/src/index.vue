@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted } from 'vue'
-import { useCustomHighlight } from './use-custom-highlight'
+import { useAdvancedTextHighlight } from './use-custom-highlight'
 import { stringifyStyle, type AllowCssStyle } from './utils'
 
 const props = withDefaults(
@@ -44,7 +44,7 @@ onUnmounted(() => style.value?.remove())
 watch(() => [props.uid, props.highlightStyle], renderStyle, { deep: true })
 
 // highlight
-const { renderHighlight, clearHighlight } = useCustomHighlight()
+const { renderHighlight, clearHighlight } = useAdvancedTextHighlight()
 const wrap = ref<HTMLElement>()
 const render = () =>
   renderHighlight({

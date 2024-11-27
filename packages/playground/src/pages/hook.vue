@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Grid, message } from 'ant-design-vue'
-import { useCustomHighlight } from 'vue-custom-highlight'
+import { useAdvancedTextHighlight } from 'vue-custom-highlight'
 
 const useBreakpoint = Grid.useBreakpoint
 const screens = useBreakpoint()
@@ -11,7 +11,7 @@ const ignoreCase = ref(false)
 const uid = ref('chl-uid')
 
 const dom = ref<HTMLElement>()
-const { renderHighlight, clearHighlight, getHighlightKeys } = useCustomHighlight()
+const { renderHighlight, clearHighlight, getHighlightKeys } = useAdvancedTextHighlight()
 const render = () => {
   const nodeList = Array.from(dom.value!.querySelectorAll<HTMLElement>('*'))
   renderHighlight({ uid: uid.value, text: text.value, ignoreCase: ignoreCase.value, nodeList })
